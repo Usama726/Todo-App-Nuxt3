@@ -2,7 +2,7 @@
     <div class=" p-4">
         <div class="w-full max-w-custom mx-auto">
             <h1
-                class="  bg-gradient-to-r from-secondary via-cyan-500 to-secondary bg-opacity-10 z-[-10] py-8 text-center text-2xl sm:text-4xl mt-16 rounded-tl-[150px] text-blue-200 md:text-secondary rounded-br-[150px] shadow-xl">
+                class="  bg-gradient-to-r from-secondary via-cyan-400 to-secondary bg-opacity-10 z-[-10] py-8 text-center text-2xl sm:text-4xl mt-16 rounded-tl-[150px] text-blue-200 md:text-secondary rounded-br-[150px] shadow-xl">
                 About App
             </h1>
             <div
