@@ -2,14 +2,14 @@
     <div class=" p-4">
         <div class="w-full max-w-custom mx-auto">
             <h1
-                class="  bg-gradient-to-r from-secondary via-cyan-400 to-secondary bg-opacity-10 z-[-10] py-8 text-center text-2xl sm:text-4xl mt-16 rounded-tl-[150px] text-blue-200 md:text-secondary rounded-br-[150px] shadow-xl">
+                class="  bg-gradient-to-r from-secondary via-cyan-500 to-secondary bg-opacity-10 z-[-10] py-8 text-center text-2xl sm:text-4xl mt-16 rounded-tl-[150px] text-blue-200 md:text-secondary rounded-br-[150px] shadow-xl">
                 About App
             </h1>
             <div
                 class="lg:relative z-[-10] flex flex-col-reverse lg:flex-row items-center justify-between mt-16 gap-8 lg:gap-4 ">
                 <div class=" flex items-center justify-center lg:justify-start w-full max-w-5/12">
                     <p
-                        class=" lg:absolute lg:w-7/12 w-10/12 text-sm md:text-lg text-gray-800 bg-gray-300 p-2 rounded-lg">
+                        class=" lg:absolute lg:w-7/12 w-full md:w-10/12 text-sm md:text-lg text-gray-800 bg-gray-300 p-2 rounded-lg">
                         Introducing our innovative todo app designed to streamline your task
                         management
                         experience. With a sleek

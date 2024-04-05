@@ -8,8 +8,8 @@
         <AddColumnPopup v-if="openAddColumnModel" @addColumn="addColumn" show-add-column-model="openAddColumnModel"
             @close="openAddColumnModel = false" />
         <div>
-            <div class=" flex overflow-x-scroll scroll-smooth gap-4 overflow-y-hidden no-scrollbar  h-auto max-h-[80vh] w-full max-w-custom mx-auto  mt-6 z-50 rounded-lg"
-                :class="columns.length > 0 ? 'border-8 border-gray-600 pt-2 px-2 ' : ''">
+            <div
+                class=" flex overflow-x-scroll scroll-smooth gap-4 overflow-y-hidden no-scrollbar  h-auto max-h-[80vh] w-full max-w-custom mx-auto  mt-6 z-50 rounded-lg">
                 <div v-for="(column, columnIndex) in   columns  " :key="columnIndex"
                     class="w-[320px] max-h-[80vh]  bg-black rounded-xl" @dragover.prevent
                     @drop="moveColumn(columnIndex)" draggable="true" @dragstart="dragColumnIndex = columnIndex"
@@ -175,8 +175,8 @@
                     </div>
                 </form>
 
-                <TheButton v-if="!showForm && columns.length" buttonText="Add Column" @click="showForm = true"
-                    class="w-[325px] " />
+                <!-- <TheButton v-if="!showForm && columns.length" buttonText="Add Column" @click="showForm = true"
+                    class="w-[325px] " /> -->
             </div>
         </div>
         <EditTaskPopup v-if="editTaskModel" :show-model="editTaskModel" @close="editTaskModel = false"
@@ -408,6 +408,7 @@ onMounted(() => {
 
 onBeforeMount(() => {
     store.loadFromLocalStorage
+    store.getColumns
     columns.value = store.loadFromLocalStorage();
 });
 useHead(({
