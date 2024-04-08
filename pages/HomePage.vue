@@ -175,8 +175,8 @@
                     </div>
                 </form>
 
-                <!-- <TheButton v-if="!showForm && columns.length" buttonText="Add Column" @click="showForm = true"
-                    class="w-[325px] " /> -->
+                <TheButton v-if="!showForm && columns.length > 0" buttonText="Add Column" @click="showForm = true"
+                    class="w-[325px] " />
             </div>
         </div>
         <EditTaskPopup v-if="editTaskModel" :show-model="editTaskModel" @close="editTaskModel = false"
@@ -408,7 +408,7 @@ onMounted(() => {
 
 onBeforeMount(() => {
     store.loadFromLocalStorage
-    store.getColumns
+    // store.getColumns
     columns.value = store.loadFromLocalStorage();
 });
 useHead(({
