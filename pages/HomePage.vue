@@ -175,7 +175,7 @@
                     </div>
                 </form>
 
-                <TheButton v-if="!showForm && columns.length > 0" buttonText="Add Column" @click="showForm = true"
+                <TheButton v-if="!showForm && columns?.length > 0" buttonText="Add Column" @click="showForm = true"
                     class="w-[325px] " />
             </div>
         </div>
