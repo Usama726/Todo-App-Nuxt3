@@ -1,0 +1,215 @@
+{
+  "resolvedId": "/home/usama/Documents/projects/Todo-App-Nuxt3/pages/index.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n\n    <Body class=\"bg-secondary h-screen overflow-hidden fixed top-0 w-full px-4\">\n        <HomePage />\n    </Body>\n</template>\n<script setup>\nimport HomePage from './HomePage.vue';\n\n\n</script>\n",
+      "start": 1713614385972,
+      "end": 1713614386797,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1713614386797,
+      "end": 1713614386797,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1713614386797,
+      "end": 1713614386797,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1713614386798,
+      "end": 1713614386798,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1713614386798,
+      "end": 1713614386798,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1713614386798,
+      "end": 1713614386798,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1713614386798,
+      "end": 1713614386798,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1713614386798,
+      "end": 1713614386798,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { createVNode as _createVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nimport HomePage from './HomePage.vue';\n\n\n\nconst _sfc_main = {\n  __name: 'index',\n  setup(__props) {\n\n\nreturn (_ctx, _cache) => {\n  const _component_Body = _resolveComponent(\"Body\")\n\n  return (_openBlock(), _createBlock(_component_Body, { class: \"bg-secondary h-screen overflow-hidden fixed top-0 w-full px-4\" }, {\n    default: _withCtx(() => [\n      _createVNode(HomePage)\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1713614386798,
+      "end": 1713614386798,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1713614386798,
+      "end": 1713614386798,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614386798,
+      "end": 1713614386798,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1713614386798,
+      "end": 1713614386798,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1713614386798,
+      "end": 1713614386798,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1713614386806,
+      "end": 1713614386806,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614386806,
+      "end": 1713614386806,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1713614386806,
+      "end": 1713614386806,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1713614386806,
+      "end": 1713614386806,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1713614386806,
+      "end": 1713614386806,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1713614386806,
+      "end": 1713614386806,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1713614386806,
+      "end": 1713614386806,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1713614386806,
+      "end": 1713614386806,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1713614386806,
+      "end": 1713614386806,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1713614386806,
+      "end": 1713614386806,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1713614386806,
+      "end": 1713614386806,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1713614386806,
+      "end": 1713614386806,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1713614386806,
+      "end": 1713614386807,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1713614386807,
+      "end": 1713614386807,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1713614386807,
+      "end": 1713614386807,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1713614386807,
+      "end": 1713614386807,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1713614386807,
+      "end": 1713614386807,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { Body as __nuxt_component_0 } from \"/home/usama/Documents/projects/Todo-App-Nuxt3/node_modules/nuxt/dist/head/runtime/components\";\nimport { createVNode as _createVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nimport HomePage from './HomePage.vue';\n\n\n\nconst _sfc_main = {\n  __name: 'index',\n  setup(__props) {\n\n\nreturn (_ctx, _cache) => {\n  const _component_Body = __nuxt_component_0\n\n  return (_openBlock(), _createBlock(_component_Body, { class: \"bg-secondary h-screen overflow-hidden fixed top-0 w-full px-4\" }, {\n    default: _withCtx(() => [\n      _createVNode(HomePage)\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1713614386807,
+      "end": 1713614386807,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1713614386807,
+      "end": 1713614386808,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1713614386808,
+      "end": 1713614386808,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1713614386808,
+      "end": 1713614386808,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "resolvedId": "/home/usama/Documents/projects/Todo-App-Nuxt3/pages/test.vue?macro=true",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<!-- Tasks.vue -->\n\n<template>\n    <div>\n        <div v-for=\"(column, colIndex) in columns\" :key=\"colIndex\">\n\n            <h2 class=\"my-2  text-xl\"> Column title: {{ column.title }}</h2>\n            <div v-for=\"(task, taskIndex) in column.tasks\" :key=\"taskIndex\" class=\"space-y-4\">\n                <p>{{ task.name }} </p>\n                <p>{{ task.lastName }} </p>\n                <p> {{ task.description }}</p>\n                <button @click=\"openEditForm(colIndex, taskIndex)\" class=\"mr-3\">Edit</button>\n                <button @click=\"deleteTask(colIndex, taskIndex)\">Delete</button>\n            </div>\n\n            <form @submit.prevent=\"addTask(colIndex)\">\n                <input v-model=\"newTask.name\" placeholder=\"Name\" required>\n                <input v-model=\"newTask.lastName\" placeholder=\"Last Name\" required>\n                <input v-model=\"newTask.description\" placeholder=\"Description\" required>\n                <button type=\"submit\">Add Task</button>\n            </form>\n        </div>\n\n        <div>\n            <h2>Add Column</h2>\n            <form @submit.prevent=\"addColumn\">\n                <input v-model=\"newColumnTitle\" placeholder=\"Column Title\" required>\n                <button type=\"submit\">Add Column</button>\n            </form>\n        </div>\n\n        <form v-if=\"showEditForm\" @submit.prevent=\"updateTask\">\n            <input v-model=\"editedTask.name\" placeholder=\"Name\" required>\n            <input v-model=\"editedTask.lastName\" placeholder=\"Last Name\" required>\n            <input v-model=\"editedTask.description\" placeholder=\"Description\" required>\n            <button type=\"submit\">Update Task</button>\n            <button @click=\"cancelEdit\">Cancel</button>\n        </form>\n    </div>\n</template>\n\n<script setup>\nimport { ref } from 'vue'\nimport { useTasksStore } from '/store/crud'\n\nconst store = useTasksStore()\n\nlet editColumnIndex = null\nlet editTaskIndex = null\nconst columns = store.columns\n\nconst editedTask = ref(null)\nconst showEditForm = ref(false)\n\nconst newTask = {\n    name: '',\n    lastName: '',\n    description: ''\n}\n\nconst newColumnTitle = ref('')\n\nfunction addTask(columnIndex) {\n    store.addTask(columnIndex, { ...newTask })\n    newTask.name = ''\n    newTask.lastName = ''\n    newTask.description = ''\n}\n\nfunction addColumn() {\n    if (newColumnTitle.value.trim() !== '') {\n        store.addColumn(newColumnTitle.value)\n        newColumnTitle.value = ''\n    }\n}\n\nfunction openEditForm(columnIndex, taskIndex) {\n    if (columns[columnIndex] && columns[columnIndex].tasks && columns[columnIndex].tasks[taskIndex]) {\n        editedTask.value = { ...columns[columnIndex].tasks[taskIndex] }\n        editColumnIndex = columnIndex\n        editTaskIndex = taskIndex\n        showEditForm.value = true\n    }\n}\n\nfunction updateTask() {\n    if (editedTask.value !== null && editColumnIndex !== null && editTaskIndex !== null) {\n        store.updateTask(editColumnIndex, editTaskIndex, editedTask.value)\n        editedTask.value = null\n        editColumnIndex = null\n        editTaskIndex = null\n        showEditForm.value = false\n    }\n}\nfunction cancelEdit() {\n    editedTask.value = null\n    showEditForm.value = false\n}\n\nfunction deleteTask(columnIndex, taskIndex) {\n    store.deleteTask(columnIndex, taskIndex)\n}\n</script>\n",
+      "start": 1713614385877,
+      "end": 1713614386620,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1713614386620,
+      "end": 1713614386620,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1713614386620,
+      "end": 1713614386620,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1713614386620,
+      "end": 1713614386620,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1713614386620,
+      "end": 1713614386620,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1713614386620,
+      "end": 1713614386620,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1713614386620,
+      "end": 1713614386620,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1713614386620,
+      "end": 1713614386620,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, vModelText as _vModelText, withDirectives as _withDirectives, withModifiers as _withModifiers, createCommentVNode as _createCommentVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"my-2 text-xl\" }\nconst _hoisted_2 = [\"onClick\"]\nconst _hoisted_3 = [\"onClick\"]\nconst _hoisted_4 = [\"onSubmit\"]\nconst _hoisted_5 = /*#__PURE__*/_createElementVNode(\"button\", { type: \"submit\" }, \"Add Task\", -1)\nconst _hoisted_6 = /*#__PURE__*/_createElementVNode(\"h2\", null, \"Add Column\", -1)\nconst _hoisted_7 = /*#__PURE__*/_createElementVNode(\"button\", { type: \"submit\" }, \"Add Column\", -1)\nconst _hoisted_8 = /*#__PURE__*/_createElementVNode(\"button\", { type: \"submit\" }, \"Update Task\", -1)\n\nimport { ref } from 'vue'\nimport { useTasksStore } from '/store/crud'\n\n\nconst _sfc_main = {\n  __name: 'test',\n  setup(__props) {\n\nconst store = useTasksStore()\n\nlet editColumnIndex = null\nlet editTaskIndex = null\nconst columns = store.columns\n\nconst editedTask = ref(null)\nconst showEditForm = ref(false)\n\nconst newTask = {\n    name: '',\n    lastName: '',\n    description: ''\n}\n\nconst newColumnTitle = ref('')\n\nfunction addTask(columnIndex) {\n    store.addTask(columnIndex, { ...newTask })\n    newTask.name = ''\n    newTask.lastName = ''\n    newTask.description = ''\n}\n\nfunction addColumn() {\n    if (newColumnTitle.value.trim() !== '') {\n        store.addColumn(newColumnTitle.value)\n        newColumnTitle.value = ''\n    }\n}\n\nfunction openEditForm(columnIndex, taskIndex) {\n    if (columns[columnIndex] && columns[columnIndex].tasks && columns[columnIndex].tasks[taskIndex]) {\n        editedTask.value = { ...columns[columnIndex].tasks[taskIndex] }\n        editColumnIndex = columnIndex\n        editTaskIndex = taskIndex\n        showEditForm.value = true\n    }\n}\n\nfunction updateTask() {\n    if (editedTask.value !== null && editColumnIndex !== null && editTaskIndex !== null) {\n        store.updateTask(editColumnIndex, editTaskIndex, editedTask.value)\n        editedTask.value = null\n        editColumnIndex = null\n        editTaskIndex = null\n        showEditForm.value = false\n    }\n}\nfunction cancelEdit() {\n    editedTask.value = null\n    showEditForm.value = false\n}\n\nfunction deleteTask(columnIndex, taskIndex) {\n    store.deleteTask(columnIndex, taskIndex)\n}\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(columns), (column, colIndex) => {\n      return (_openBlock(), _createElementBlock(\"div\", { key: colIndex }, [\n        _createElementVNode(\"h2\", _hoisted_1, \" Column title: \" + _toDisplayString(column.title), 1),\n        (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(column.tasks, (task, taskIndex) => {\n          return (_openBlock(), _createElementBlock(\"div\", {\n            key: taskIndex,\n            class: \"space-y-4\"\n          }, [\n            _createElementVNode(\"p\", null, _toDisplayString(task.name), 1),\n            _createElementVNode(\"p\", null, _toDisplayString(task.lastName), 1),\n            _createElementVNode(\"p\", null, _toDisplayString(task.description), 1),\n            _createElementVNode(\"button\", {\n              onClick: $event => (openEditForm(colIndex, taskIndex)),\n              class: \"mr-3\"\n            }, \"Edit\", 8, _hoisted_2),\n            _createElementVNode(\"button\", {\n              onClick: $event => (deleteTask(colIndex, taskIndex))\n            }, \"Delete\", 8, _hoisted_3)\n          ]))\n        }), 128)),\n        _createElementVNode(\"form\", {\n          onSubmit: _withModifiers($event => (addTask(colIndex)), [\"prevent\"])\n        }, [\n          _withDirectives(_createElementVNode(\"input\", {\n            \"onUpdate:modelValue\": _cache[0] || (_cache[0] = $event => ((newTask.name) = $event)),\n            placeholder: \"Name\",\n            required: \"\"\n          }, null, 512), [\n            [_vModelText, newTask.name]\n          ]),\n          _withDirectives(_createElementVNode(\"input\", {\n            \"onUpdate:modelValue\": _cache[1] || (_cache[1] = $event => ((newTask.lastName) = $event)),\n            placeholder: \"Last Name\",\n            required: \"\"\n          }, null, 512), [\n            [_vModelText, newTask.lastName]\n          ]),\n          _withDirectives(_createElementVNode(\"input\", {\n            \"onUpdate:modelValue\": _cache[2] || (_cache[2] = $event => ((newTask.description) = $event)),\n            placeholder: \"Description\",\n            required: \"\"\n          }, null, 512), [\n            [_vModelText, newTask.description]\n          ]),\n          _hoisted_5\n        ], 40, _hoisted_4)\n      ]))\n    }), 128)),\n    _createElementVNode(\"div\", null, [\n      _hoisted_6,\n      _createElementVNode(\"form\", {\n        onSubmit: _withModifiers(addColumn, [\"prevent\"])\n      }, [\n        _withDirectives(_createElementVNode(\"input\", {\n          \"onUpdate:modelValue\": _cache[3] || (_cache[3] = $event => ((newColumnTitle).value = $event)),\n          placeholder: \"Column Title\",\n          required: \"\"\n        }, null, 512), [\n          [_vModelText, newColumnTitle.value]\n        ]),\n        _hoisted_7\n      ], 32)\n    ]),\n    (showEditForm.value)\n      ? (_openBlock(), _createElementBlock(\"form\", {\n          key: 0,\n          onSubmit: _withModifiers(updateTask, [\"prevent\"])\n        }, [\n          _withDirectives(_createElementVNode(\"input\", {\n            \"onUpdate:modelValue\": _cache[4] || (_cache[4] = $event => ((editedTask.value.name) = $event)),\n            placeholder: \"Name\",\n            required: \"\"\n          }, null, 512), [\n            [_vModelText, editedTask.value.name]\n          ]),\n          _withDirectives(_createElementVNode(\"input\", {\n            \"onUpdate:modelValue\": _cache[5] || (_cache[5] = $event => ((editedTask.value.lastName) = $event)),\n            placeholder: \"Last Name\",\n            required: \"\"\n          }, null, 512), [\n            [_vModelText, editedTask.value.lastName]\n          ]),\n          _withDirectives(_createElementVNode(\"input\", {\n            \"onUpdate:modelValue\": _cache[6] || (_cache[6] = $event => ((editedTask.value.description) = $event)),\n            placeholder: \"Description\",\n            required: \"\"\n          }, null, 512), [\n            [_vModelText, editedTask.value.description]\n          ]),\n          _hoisted_8,\n          _createElementVNode(\"button\", { onClick: cancelEdit }, \"Cancel\")\n        ], 32))\n      : _createCommentVNode(\"\", true)\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1713614386620,
+      "end": 1713614386644,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1713614386644,
+      "end": 1713614386644,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614386644,
+      "end": 1713614386644,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1713614386644,
+      "end": 1713614386644,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1713614386644,
+      "end": 1713614386644,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1713614386646,
+      "end": 1713614386646,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614386646,
+      "end": 1713614386646,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1713614386646,
+      "end": 1713614386646,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1713614386646,
+      "end": 1713614386646,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1713614386646,
+      "end": 1713614386646,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1713614386646,
+      "end": 1713614386646,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1713614386646,
+      "end": 1713614386646,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1713614386646,
+      "end": 1713614386646,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1713614386646,
+      "end": 1713614386646,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1713614386646,
+      "end": 1713614386646,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1713614386646,
+      "end": 1713614386646,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1713614386646,
+      "end": 1713614386646,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1713614386646,
+      "end": 1713614386653,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1713614386653,
+      "end": 1713614386653,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1713614386653,
+      "end": 1713614386656,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;"
+      }
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1713614386656,
+      "end": 1713614386656,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1713614386656,
+      "end": 1713614386656,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1713614386656,
+      "end": 1713614386656,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1713614386656,
+      "end": 1713614386656,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1713614386656,
+      "end": 1713614386656,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1713614386656,
+      "end": 1713614386656,
+      "order": "normal"
+    }
+  ]
+}

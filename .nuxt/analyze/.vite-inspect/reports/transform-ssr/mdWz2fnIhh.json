@@ -1,0 +1,246 @@
+{
+  "resolvedId": "/home/usama/Documents/projects/Todo-App-Nuxt3/store/todoStore.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// store/columns.js\n\nimport { defineStore } from 'pinia';\n\nexport const useTodoAppStore = defineStore({\n    id: 'columns',\n    state: () => ({\n        columns: []\n    }),\n    getters: {\n        getColumns: (state) => state.columns,\n    },\n    actions: {\n\n\n        // About Columns \n\n\n        addColumn(column) {\n            this.columns.unshift({\n                title: column,\n                date: column,\n                tasks: [],\n                showForm: false,\n            });\n            this.saveToLocalStorage();\n        },\n\n        addColumnAtEnd(column) {\n            this.columns.push({\n                title: column,\n                date: column,\n                tasks: [],\n            });\n            this.saveToLocalStorage();\n        },\n\n        editColumnTitle(columnIndex, newTitle) {\n            this.columns[columnIndex].title = newTitle\n            this.saveToLocalStorage();\n        },\n\n        deleteColumn(columnIndex) {\n            this.columns.splice(columnIndex, 1)\n            this.saveToLocalStorage();\n        },\n\n        deleteAllColumns() {\n            this.columns = []\n            this.saveToLocalStorage();\n        },\n\n        moveColumn(fromIndex, toIndex) {\n            const columns = [...this.columns]\n            const [columnToMove] = columns.splice(fromIndex, 1)\n            columns.splice(toIndex, 0, columnToMove)\n            this.columns = columns\n            this.saveToLocalStorage();\n            // return this.getColumns()\n        },\n\n\n        // About Tasks\n\n\n        addTask(columnIndex, task) {\n            this.columns[columnIndex].tasks.unshift(task);\n            this.saveToLocalStorage();\n\n        },\n        deleteTask(columnIndex, taskIndex) {\n            this.columns[columnIndex].tasks.splice(taskIndex, 1)\n            this.saveToLocalStorage();\n        },\n\n        updateTask(columnIndex, taskIndex, updatedTask) {\n\n            this.columns[columnIndex].tasks[taskIndex] = updatedTask;\n            this.saveToLocalStorage();\n\n        },\n\n        // moveTask(sourceColumnIndex, sourceTaskIndex, destinationColumnIndex, destinationTaskIndex, task) {\n        //     // Remove the task from the source column\n        //     const movedTask = this.columns[sourceColumnIndex].tasks.splice(sourceTaskIndex, 1)[0];\n        //     // Insert the task into the destination column\n        //     this.columns[destinationColumnIndex].tasks.splice(destinationTaskIndex, 0, movedTask);\n        //     // If provided, update task data\n        //     if (task) {\n        //         this.updateTask(destinationColumnIndex, destinationTaskIndex, task);\n        //     }\n        // },\n\n        //About Local Storage\n\n\n        loadFromLocalStorage() {\n            const storedColumns = JSON.parse(localStorage.getItem('columns'));\n            if (storedColumns) {\n                return this.columns = storedColumns;\n            }\n        },\n        saveToLocalStorage() {\n            localStorage.setItem('columns', JSON.stringify(this.columns));\n        },\n\n    },\n\n});\n",
+      "start": 1713614393137,
+      "end": 1713614393341,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614393341,
+      "end": 1713614393341,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1713614393341,
+      "end": 1713614393342,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1713614393342,
+      "end": 1713614393342,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1713614393342,
+      "end": 1713614393342,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1713614393342,
+      "end": 1713614393342,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1713614393342,
+      "end": 1713614393342,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1713614393342,
+      "end": 1713614393342,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1713614393342,
+      "end": 1713614393342,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1713614393342,
+      "end": 1713614393342,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1713614393342,
+      "end": 1713614393342,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1713614393342,
+      "end": 1713614393342,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1713614393342,
+      "end": 1713614393342,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1713614393342,
+      "end": 1713614393343,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1713614393342,
+      "end": 1713614393343,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1713614393343,
+      "end": 1713614393343,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1713614393343,
+      "end": 1713614393343,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1713614393343,
+      "end": 1713614393343,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1713614393343,
+      "end": 1713614393343,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1713614393343,
+      "end": 1713614393343,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1713614393343,
+      "end": 1713614393343,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1713614393343,
+      "end": 1713614393343,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1713614393343,
+      "end": 1713614393344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1713614393344,
+      "end": 1713614393344,
+      "order": "normal"
+    }
+  ]
+}
