@@ -1,0 +1,214 @@
+{
+  "resolvedId": "/home/usama/Documents/projects/Todo-App-Nuxt3/components/ConfirmSuccessPopup.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n\n    <div v-if=\"show\" class=\"successBox \">\n        <div class=\" flex rounded-lg bg-white py-4 px-6 items-center gap-2\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"mx-auto h-10 w-10 text-green-400\" viewBox=\"0 0 20 20\"\n                fill=\"currentColor\">\n                <path fill-rule=\"evenodd\"\n                    d=\"M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z\"\n                    clip-rule=\"evenodd\" />\n            </svg>\n            <p class=\" text-base fornt-medium\">{{ message }} </p>\n        </div>\n    </div>\n</template>\n\n<script setup>\ndefineProps({\n    show: {\n        type: Boolean,\n        default: false,\n    },\n    message: {\n        type: String,\n        default: '',\n    },\n\n})\nconst emit = defineEmits(['close'])\n</script>\n<style scoped>\n.successBox {\n    position: absolute;\n    top: 2rem;\n    right: -100%;\n    animation: moveBox 4s ease-in-out;\n}\n\n@keyframes moveBox {\n    0% {\n        right: -50%;\n        /* Initial position */\n    }\n\n    50% {\n        right: 2%;\n        /* Midway position */\n    }\n\n    75% {\n        right: 3%;\n        /* Three-quarter position */\n    }\n\n    100% {\n        right: -50%;\n        /* Final position */\n    }\n}\n</style>",
+      "start": 1713614387505,
+      "end": 1713614388739,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1713614388739,
+      "end": 1713614388739,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1713614388739,
+      "end": 1713614388739,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1713614388739,
+      "end": 1713614388739,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1713614388739,
+      "end": 1713614388739,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1713614388739,
+      "end": 1713614388739,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1713614388739,
+      "end": 1713614388739,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1713614388739,
+      "end": 1713614388739,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, createCommentVNode as _createCommentVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-aaafe02d\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = {\n  key: 0,\n  class: \"successBox\"\n}\nconst _hoisted_2 = { class: \"flex rounded-lg bg-white py-4 px-6 items-center gap-2\" }\nconst _hoisted_3 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"svg\", {\n  xmlns: \"http://www.w3.org/2000/svg\",\n  class: \"mx-auto h-10 w-10 text-green-400\",\n  viewBox: \"0 0 20 20\",\n  fill: \"currentColor\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    \"fill-rule\": \"evenodd\",\n    d: \"M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z\",\n    \"clip-rule\": \"evenodd\"\n  })\n], -1))\nconst _hoisted_4 = { class: \"text-base fornt-medium\" }\n\n\nconst _sfc_main = {\n  __name: 'ConfirmSuccessPopup',\n  props: {\n    show: {\n        type: Boolean,\n        default: false,\n    },\n    message: {\n        type: String,\n        default: '',\n    },\n\n},\n  emits: ['close'],\n  setup(__props, { emit: __emit }) {\n\n\nconst emit = __emit\n\nreturn (_ctx, _cache) => {\n  return (__props.show)\n    ? (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _hoisted_3,\n          _createElementVNode(\"p\", _hoisted_4, _toDisplayString(__props.message), 1)\n        ])\n      ]))\n    : _createCommentVNode(\"\", true)\n}\n}\n\n}\n\n\nimport \"/home/usama/Documents/projects/Todo-App-Nuxt3/components/ConfirmSuccessPopup.vue?vue&type=style&index=0&scoped=aaafe02d&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-aaafe02d\"]])",
+      "start": 1713614388739,
+      "end": 1713614388743,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1713614388743,
+      "end": 1713614388743,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1713614388743,
+      "end": 1713614388744,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1713614388744,
+      "end": 1713614388745,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1713614388745,
+      "end": 1713614388745,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1713614388745,
+      "end": 1713614388745,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1713614388745,
+      "end": 1713614388745,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1713614388745,
+      "end": 1713614388745,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1713614388745,
+      "end": 1713614388745,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1713614388745,
+      "end": 1713614388745,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1713614388745,
+      "end": 1713614388745,
+      "order": "normal"
+    }
+  ]
+}

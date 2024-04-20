@@ -1,0 +1,214 @@
+{
+  "resolvedId": "/home/usama/Documents/projects/Todo-App-Nuxt3/components/TheButton.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n    <div>\n        <button class=\"py-2 px-4 text-white bg-gray-600 hover:bg-gray-500 rounded-lg text-xl\" :class=\"buttonStyling\">\n            {{ buttonText }}\n        </button>\n    </div>\n</template>\n\n<script setup>\ndefineProps({\n    buttonText: {\n        type: String,\n        default: '',\n    },\n    buttonStyling: {\n        type: String,\n        default: '',\n    },\n})\n\n</script>\n\n<style lang=\"scss\" scoped></style>",
+      "start": 1713614387504,
+      "end": 1713614388661,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1713614388661,
+      "end": 1713614388661,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1713614388661,
+      "end": 1713614388661,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1713614388661,
+      "end": 1713614388661,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1713614388661,
+      "end": 1713614388661,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1713614388661,
+      "end": 1713614388661,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1713614388661,
+      "end": 1713614388661,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1713614388661,
+      "end": 1713614388661,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { toDisplayString as _toDisplayString, normalizeClass as _normalizeClass, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\n\nconst _sfc_main = {\n  __name: 'TheButton',\n  props: {\n    buttonText: {\n        type: String,\n        default: '',\n    },\n    buttonStyling: {\n        type: String,\n        default: '',\n    },\n},\n  setup(__props) {\n\n\n\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\"button\", {\n      class: _normalizeClass([\"py-2 px-4 text-white bg-gray-600 hover:bg-gray-500 rounded-lg text-xl\", __props.buttonStyling])\n    }, _toDisplayString(__props.buttonText), 3)\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1713614388661,
+      "end": 1713614388664,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1713614388664,
+      "end": 1713614388664,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614388664,
+      "end": 1713614388664,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1713614388665,
+      "end": 1713614388665,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1713614388665,
+      "end": 1713614388666,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1713614388666,
+      "end": 1713614388666,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1713614388666,
+      "end": 1713614388666,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1713614388666,
+      "end": 1713614388666,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1713614388666,
+      "end": 1713614388666,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1713614388666,
+      "end": 1713614388666,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1713614388666,
+      "end": 1713614388666,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1713614388666,
+      "end": 1713614388666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1713614388666,
+      "end": 1713614388666,
+      "order": "normal"
+    }
+  ]
+}

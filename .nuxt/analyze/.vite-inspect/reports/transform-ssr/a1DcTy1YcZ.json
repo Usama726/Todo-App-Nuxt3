@@ -1,0 +1,276 @@
+{
+  "resolvedId": "/home/usama/Documents/projects/Todo-App-Nuxt3/pages/test.vue?macro=true",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<!-- Tasks.vue -->\n\n<template>\n    <div>\n        <div v-for=\"(column, colIndex) in columns\" :key=\"colIndex\">\n\n            <h2 class=\"my-2  text-xl\"> Column title: {{ column.title }}</h2>\n            <div v-for=\"(task, taskIndex) in column.tasks\" :key=\"taskIndex\" class=\"space-y-4\">\n                <p>{{ task.name }} </p>\n                <p>{{ task.lastName }} </p>\n                <p> {{ task.description }}</p>\n                <button @click=\"openEditForm(colIndex, taskIndex)\" class=\"mr-3\">Edit</button>\n                <button @click=\"deleteTask(colIndex, taskIndex)\">Delete</button>\n            </div>\n\n            <form @submit.prevent=\"addTask(colIndex)\">\n                <input v-model=\"newTask.name\" placeholder=\"Name\" required>\n                <input v-model=\"newTask.lastName\" placeholder=\"Last Name\" required>\n                <input v-model=\"newTask.description\" placeholder=\"Description\" required>\n                <button type=\"submit\">Add Task</button>\n            </form>\n        </div>\n\n        <div>\n            <h2>Add Column</h2>\n            <form @submit.prevent=\"addColumn\">\n                <input v-model=\"newColumnTitle\" placeholder=\"Column Title\" required>\n                <button type=\"submit\">Add Column</button>\n            </form>\n        </div>\n\n        <form v-if=\"showEditForm\" @submit.prevent=\"updateTask\">\n            <input v-model=\"editedTask.name\" placeholder=\"Name\" required>\n            <input v-model=\"editedTask.lastName\" placeholder=\"Last Name\" required>\n            <input v-model=\"editedTask.description\" placeholder=\"Description\" required>\n            <button type=\"submit\">Update Task</button>\n            <button @click=\"cancelEdit\">Cancel</button>\n        </form>\n    </div>\n</template>\n\n<script setup>\nimport { ref } from 'vue'\nimport { useTasksStore } from '/store/crud'\n\nconst store = useTasksStore()\n\nlet editColumnIndex = null\nlet editTaskIndex = null\nconst columns = store.columns\n\nconst editedTask = ref(null)\nconst showEditForm = ref(false)\n\nconst newTask = {\n    name: '',\n    lastName: '',\n    description: ''\n}\n\nconst newColumnTitle = ref('')\n\nfunction addTask(columnIndex) {\n    store.addTask(columnIndex, { ...newTask })\n    newTask.name = ''\n    newTask.lastName = ''\n    newTask.description = ''\n}\n\nfunction addColumn() {\n    if (newColumnTitle.value.trim() !== '') {\n        store.addColumn(newColumnTitle.value)\n        newColumnTitle.value = ''\n    }\n}\n\nfunction openEditForm(columnIndex, taskIndex) {\n    if (columns[columnIndex] && columns[columnIndex].tasks && columns[columnIndex].tasks[taskIndex]) {\n        editedTask.value = { ...columns[columnIndex].tasks[taskIndex] }\n        editColumnIndex = columnIndex\n        editTaskIndex = taskIndex\n        showEditForm.value = true\n    }\n}\n\nfunction updateTask() {\n    if (editedTask.value !== null && editColumnIndex !== null && editTaskIndex !== null) {\n        store.updateTask(editColumnIndex, editTaskIndex, editedTask.value)\n        editedTask.value = null\n        editColumnIndex = null\n        editTaskIndex = null\n        showEditForm.value = false\n    }\n}\nfunction cancelEdit() {\n    editedTask.value = null\n    showEditForm.value = false\n}\n\nfunction deleteTask(columnIndex, taskIndex) {\n    store.deleteTask(columnIndex, taskIndex)\n}\n</script>\n",
+      "start": 1713614392488,
+      "end": 1713614392899,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1713614392899,
+      "end": 1713614392899,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1713614392899,
+      "end": 1713614392899,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1713614392899,
+      "end": 1713614392899,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1713614392899,
+      "end": 1713614392899,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1713614392899,
+      "end": 1713614392899,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1713614392899,
+      "end": 1713614392899,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1713614392899,
+      "end": 1713614392899,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1713614392899,
+      "end": 1713614392899,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1713614392899,
+      "end": 1713614392899,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { unref as _unref } from \"vue\"\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport { ref } from 'vue'\nimport { useTasksStore } from '/store/crud'\n\n\nconst _sfc_main = {\n  __name: 'test',\n  __ssrInlineRender: true,\n  setup(__props) {\n\nconst store = useTasksStore()\n\nlet editColumnIndex = null\nlet editTaskIndex = null\nconst columns = store.columns\n\nconst editedTask = ref(null)\nconst showEditForm = ref(false)\n\nconst newTask = {\n    name: '',\n    lastName: '',\n    description: ''\n}\n\nconst newColumnTitle = ref('')\n\nfunction addTask(columnIndex) {\n    store.addTask(columnIndex, { ...newTask })\n    newTask.name = ''\n    newTask.lastName = ''\n    newTask.description = ''\n}\n\nfunction addColumn() {\n    if (newColumnTitle.value.trim() !== '') {\n        store.addColumn(newColumnTitle.value)\n        newColumnTitle.value = ''\n    }\n}\n\nfunction openEditForm(columnIndex, taskIndex) {\n    if (columns[columnIndex] && columns[columnIndex].tasks && columns[columnIndex].tasks[taskIndex]) {\n        editedTask.value = { ...columns[columnIndex].tasks[taskIndex] }\n        editColumnIndex = columnIndex\n        editTaskIndex = taskIndex\n        showEditForm.value = true\n    }\n}\n\nfunction updateTask() {\n    if (editedTask.value !== null && editColumnIndex !== null && editTaskIndex !== null) {\n        store.updateTask(editColumnIndex, editTaskIndex, editedTask.value)\n        editedTask.value = null\n        editColumnIndex = null\n        editTaskIndex = null\n        showEditForm.value = false\n    }\n}\nfunction cancelEdit() {\n    editedTask.value = null\n    showEditForm.value = false\n}\n\nfunction deleteTask(columnIndex, taskIndex) {\n    store.deleteTask(columnIndex, taskIndex)\n}\n\nreturn (_ctx, _push, _parent, _attrs) => {\n  _push(`<div${_ssrRenderAttrs(_attrs)}><!--[-->`)\n  _ssrRenderList(_unref(columns), (column, colIndex) => {\n    _push(`<div><h2 class=\"my-2 text-xl\"> Column title: ${_ssrInterpolate(column.title)}</h2><!--[-->`)\n    _ssrRenderList(column.tasks, (task, taskIndex) => {\n      _push(`<div class=\"space-y-4\"><p>${\n        _ssrInterpolate(task.name)\n      }</p><p>${\n        _ssrInterpolate(task.lastName)\n      }</p><p>${\n        _ssrInterpolate(task.description)\n      }</p><button class=\"mr-3\">Edit</button><button>Delete</button></div>`)\n    })\n    _push(`<!--]--><form><input${\n      _ssrRenderAttr(\"value\", newTask.name)\n    } placeholder=\"Name\" required><input${\n      _ssrRenderAttr(\"value\", newTask.lastName)\n    } placeholder=\"Last Name\" required><input${\n      _ssrRenderAttr(\"value\", newTask.description)\n    } placeholder=\"Description\" required><button type=\"submit\">Add Task</button></form></div>`)\n  })\n  _push(`<!--]--><div><h2>Add Column</h2><form><input${_ssrRenderAttr(\"value\", newColumnTitle.value)} placeholder=\"Column Title\" required><button type=\"submit\">Add Column</button></form></div>`)\n  if (showEditForm.value) {\n    _push(`<form><input${\n      _ssrRenderAttr(\"value\", editedTask.value.name)\n    } placeholder=\"Name\" required><input${\n      _ssrRenderAttr(\"value\", editedTask.value.lastName)\n    } placeholder=\"Last Name\" required><input${\n      _ssrRenderAttr(\"value\", editedTask.value.description)\n    } placeholder=\"Description\" required><button type=\"submit\">Update Task</button><button>Cancel</button></form>`)\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`</div>`)\n}\n}\n\n}\n\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"pages/test.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nexport default _sfc_main",
+      "start": 1713614392899,
+      "end": 1713614392906,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/usama/Documents/projects/Todo-App-Nuxt3/pages/test.vue"
+        ],
+        "sourcesContent": [
+          "<!-- Tasks.vue -->\n\n<template>\n    <div>\n        <div v-for=\"(column, colIndex) in columns\" :key=\"colIndex\">\n\n            <h2 class=\"my-2  text-xl\"> Column title: {{ column.title }}</h2>\n            <div v-for=\"(task, taskIndex) in column.tasks\" :key=\"taskIndex\" class=\"space-y-4\">\n                <p>{{ task.name }} </p>\n                <p>{{ task.lastName }} </p>\n                <p> {{ task.description }}</p>\n                <button @click=\"openEditForm(colIndex, taskIndex)\" class=\"mr-3\">Edit</button>\n                <button @click=\"deleteTask(colIndex, taskIndex)\">Delete</button>\n            </div>\n\n            <form @submit.prevent=\"addTask(colIndex)\">\n                <input v-model=\"newTask.name\" placeholder=\"Name\" required>\n                <input v-model=\"newTask.lastName\" placeholder=\"Last Name\" required>\n                <input v-model=\"newTask.description\" placeholder=\"Description\" required>\n                <button type=\"submit\">Add Task</button>\n            </form>\n        </div>\n\n        <div>\n            <h2>Add Column</h2>\n            <form @submit.prevent=\"addColumn\">\n                <input v-model=\"newColumnTitle\" placeholder=\"Column Title\" required>\n                <button type=\"submit\">Add Column</button>\n            </form>\n        </div>\n\n        <form v-if=\"showEditForm\" @submit.prevent=\"updateTask\">\n            <input v-model=\"editedTask.name\" placeholder=\"Name\" required>\n            <input v-model=\"editedTask.lastName\" placeholder=\"Last Name\" required>\n            <input v-model=\"editedTask.description\" placeholder=\"Description\" required>\n            <button type=\"submit\">Update Task</button>\n            <button @click=\"cancelEdit\">Cancel</button>\n        </form>\n    </div>\n</template>\n\n<script setup>\nimport { ref } from 'vue'\nimport { useTasksStore } from '/store/crud'\n\nconst store = useTasksStore()\n\nlet editColumnIndex = null\nlet editTaskIndex = null\nconst columns = store.columns\n\nconst editedTask = ref(null)\nconst showEditForm = ref(false)\n\nconst newTask = {\n    name: '',\n    lastName: '',\n    description: ''\n}\n\nconst newColumnTitle = ref('')\n\nfunction addTask(columnIndex) {\n    store.addTask(columnIndex, { ...newTask })\n    newTask.name = ''\n    newTask.lastName = ''\n    newTask.description = ''\n}\n\nfunction addColumn() {\n    if (newColumnTitle.value.trim() !== '') {\n        store.addColumn(newColumnTitle.value)\n        newColumnTitle.value = ''\n    }\n}\n\nfunction openEditForm(columnIndex, taskIndex) {\n    if (columns[columnIndex] && columns[columnIndex].tasks && columns[columnIndex].tasks[taskIndex]) {\n        editedTask.value = { ...columns[columnIndex].tasks[taskIndex] }\n        editColumnIndex = columnIndex\n        editTaskIndex = taskIndex\n        showEditForm.value = true\n    }\n}\n\nfunction updateTask() {\n    if (editedTask.value !== null && editColumnIndex !== null && editTaskIndex !== null) {\n        store.updateTask(editColumnIndex, editTaskIndex, editedTask.value)\n        editedTask.value = null\n        editColumnIndex = null\n        editTaskIndex = null\n        showEditForm.value = false\n    }\n}\nfunction cancelEdit() {\n    editedTask.value = null\n    showEditForm.value = false\n}\n\nfunction deleteTask(columnIndex, taskIndex) {\n    store.deleteTask(columnIndex, taskIndex)\n}\n</script>\n"
+        ],
+        "names": [],
+        "mappings": "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AAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC;AACD;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjC,CAAC,CAAC,CAAC,CAAC,CAAC;AACL,CAAC;AACD;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtG,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjC,CAAC,CAAC,CAAC,CAAC,CAAC;AACL,CAAC;AACD;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1F,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1E,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClC,CAAC,CAAC,CAAC,CAAC,CAAC;AACL,CAAC;AACD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC;AACD;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5C,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1713614392906,
+      "end": 1713614392906,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1713614392907,
+      "end": 1713614392907,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1713614392907,
+      "end": 1713614392907,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1713614392907,
+      "end": 1713614392907,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1713614392907,
+      "end": 1713614392907,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1713614392907,
+      "end": 1713614392907,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1713614392907,
+      "end": 1713614392908,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1713614392907,
+      "end": 1713614392908,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1713614392908,
+      "end": 1713614392908,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1713614392908,
+      "end": 1713614392908,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1713614392908,
+      "end": 1713614392908,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;"
+      }
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1713614392908,
+      "end": 1713614392908,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;"
+      }
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1713614392908,
+      "end": 1713614392908,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1713614392908,
+      "end": 1713614392908,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1713614392909,
+      "end": 1713614392909,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1713614392909,
+      "end": 1713614392909,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1713614392909,
+      "end": 1713614392909,
+      "order": "normal"
+    }
+  ]
+}
