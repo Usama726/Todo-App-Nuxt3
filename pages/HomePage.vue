@@ -3,7 +3,8 @@
     <div class="p-4">
         <div class=" w-full max-w-custom mx-auto flex justify-between mt-2 ">
             <TheButton buttonText="Add Column" @click="openAddColumnModel = true" />
-            <TheButton buttonText="Clear Task Board" @click="openDeleteConfirmation(null, null, 'all')" />
+            <TheButton v-if="columns?.length > 0" buttonText="Clear Task Board"
+                @click="openDeleteConfirmation(null, null, 'all')" />
         </div>
         <AddColumnPopup v-if="openAddColumnModel" @addColumn="addColumn" show-add-column-model="openAddColumnModel"
             @close="openAddColumnModel = false" />
@@ -325,9 +326,12 @@ const addColumn = (column) => {
 };
 
 const addColumnAtEnd = () => {
-
     store.addColumnAtEnd(column.value);
     showForm.value = false
+    column.value = {
+        title: '',
+        createdAt: '',
+    }
     // column.value = {}
     triggerSuccessMessage('Column Added successfully')
 };
