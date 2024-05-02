@@ -24,6 +24,7 @@ export const useTodoAppStore = defineStore({
                 showForm: false,
             });
             this.saveToLocalStorage();
+            this.loadFromLocalStorage()
         },
 
         addColumnAtEnd(column) {
