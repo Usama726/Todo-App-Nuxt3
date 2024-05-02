@@ -5,13 +5,13 @@
     <Body class=" bg-secondary md:overflow-hidden">
         <Navbar />
         <div
-            class=" px-4 h-[90vh]  max-w-custom mx-auto flex flex-col md:flex-row  items-center justify-between gap-8 w-full">
+            class=" px-4 xl:px-0 h-[90vh]  max-w-custom mx-auto flex flex-col md:flex-row  items-center justify-between gap-8 w-full">
             <div class="flex flex-col w-full md:w-5/12 justify-center lg:items-start ">
                 <h1
-                    class="my-4 text-xl md:text-5xl text-gray-200 opacity-75 font-bold leading-tight text-center md:text-left">
+                    class="my-4 text-xl md:text-3xl lg:text-4xl text-gray-200 opacity-75 font-bold leading-tight text-center md:text-left">
                     Simplify Your Tasks With
                     <span
-                        class="text-2xl md:text-6xl bg-clip-text animate-pulse italic text-transparent bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500">
+                        class="text-2xl md:text-4xl lg:text-5xl bg-clip-text animate-pulse italic text-transparent bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500">
                         Intuitive
                     </span>
                     To-Do List App!
