@@ -72,7 +72,6 @@ const column = ref({
     title: '',
     createdAt: formattedDate,
 })
-// const title = ref('');
 
 defineProps({
     showAddColumnModel: {
@@ -86,5 +85,3 @@ const submitForm = () => {
     column.value = {}
 }
 </script>
-
-<style lang="scss" scoped></style>

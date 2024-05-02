@@ -332,7 +332,6 @@ const addColumnAtEnd = () => {
         title: '',
         createdAt: '',
     }
-    // column.value = {}
     triggerSuccessMessage('Column Added successfully')
 };
 
@@ -408,13 +407,16 @@ const deleteTask = (columnIndex, taskindex) => {
 onMounted(() => {
     formatDate();
     formatTime();
-});
-
-onBeforeMount(() => {
     store.loadFromLocalStorage
     // store.getColumns
     columns.value = store.loadFromLocalStorage();
 });
+
+// onBeforeMount(() => {
+//     store.loadFromLocalStorage
+//     // store.getColumns
+//     columns.value = store.loadFromLocalStorage();
+// });
 useHead(({
     title: 'Todo-App'
 }))
