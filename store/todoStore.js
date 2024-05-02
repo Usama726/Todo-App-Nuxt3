@@ -21,10 +21,8 @@ export const useTodoAppStore = defineStore({
                 title: column,
                 date: column,
                 tasks: [],
-                showForm: false,
             });
             this.saveToLocalStorage();
-            this.loadFromLocalStorage()
         },
 
         addColumnAtEnd(column) {
