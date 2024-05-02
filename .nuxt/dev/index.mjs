@@ -77,7 +77,7 @@ const appConfig = defuFn(inlineAppConfig);
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildAssetsDir": "/_nuxt/",
+    "buildAssetsDir": "/something/",
     "cdnURL": ""
   },
   "nitro": {
@@ -86,12 +86,12 @@ const _inlineRuntimeConfig = {
       "/__nuxt_error": {
         "cache": false
       },
-      "/_nuxt/builds/meta/**": {
+      "/something/builds/meta/**": {
         "headers": {
           "cache-control": "public, max-age=31536000, immutable"
         }
       },
-      "/_nuxt/builds/**": {
+      "/something/builds/**": {
         "headers": {
           "cache-control": "public, max-age=1, immutable"
         }
@@ -1014,7 +1014,7 @@ function createServerHead(options = {}) {
 
 const unheadPlugins = [];
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/png","href":"/images/TodoIcon.svg"}],"style":[],"script":[],"noscript":[],"htmlAttrs":{"dir":"ltr","lang":"fa"}};
 
 const appRootId = "__nuxt";
 

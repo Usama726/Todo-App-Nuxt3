@@ -6,5 +6,12 @@ export default defineNuxtConfig({
     cssPath: '~/assets/css/tailwind.css',
    
   },
+      app: {
+        buildAssetsDir: '/something/',
+        head: {
+            htmlAttrs: { dir: 'ltr', lang: 'fa' },
+            link: [{ rel: 'icon', type: 'image/png', href: "/images/TodoIcon.svg" }]
+        },
+    },
  
 })
