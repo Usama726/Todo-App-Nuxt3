@@ -11,9 +11,9 @@
             @close="openAddColumnModel = false" />
         <div>
             <div
-                class="px-4 xl:px-0  flex overflow-x-scroll scroll-smooth gap-4 overflow-y-hidden no-scrollbar  h-auto max-h-[80vh] w-full max-w-custom mx-auto  mt-6 z-50 rounded-lg">
+                class="px-4 xl:px-0  flex overflow-x-scroll scroll-smooth gap-4 overflow-y-hidden no-scrollbar  h-auto max-h-[75vh] w-full max-w-custom mx-auto  mt-6 z-50 rounded-lg">
                 <div v-for="(column, columnIndex) in   columns  " :key="columnIndex"
-                    class="w-[320px] max-h-[80vh]  bg-black rounded-xl" @dragover.prevent
+                    class="w-[320px] max-h-[75vh]  bg-black rounded-xl" @dragover.prevent
                     @drop="moveColumn(columnIndex)" draggable="true" @dragstart="dragColumnIndex = columnIndex"
                     @dragend="updateColumnOrder">
 
