@@ -1,103 +1,40 @@
 <!-- Tasks.vue -->
 
 <template>
-    <div>
-        <div v-for="(column, colIndex) in columns" :key="colIndex">
 
-            <h2 class="my-2  text-xl"> Column title: {{ column.title }}</h2>
-            <div v-for="(task, taskIndex) in column.tasks" :key="taskIndex" class="space-y-4">
-                <p>{{ task.name }} </p>
-                <p>{{ task.lastName }} </p>
-                <p> {{ task.description }}</p>
-                <button @click="openEditForm(colIndex, taskIndex)" class="mr-3">Edit</button>
-                <button @click="deleteTask(colIndex, taskIndex)">Delete</button>
+    <Body class="h-screen overflow-hidden flex items-center justify-center px-4 bg-secondary">
+        <div
+            class=" max-w-custom mx-auto flex flex-wrap flex-col md:flex-row items-center justify-between gap-8 w-full">
+            <div class="flex flex-col w-full md:w-5/12 justify-center lg:items-start ">
+                <h1
+                    class="my-4 text-3xl md:text-5xl text-gray-200 opacity-75 font-bold leading-tight text-center md:text-left">
+                    Simplify Your Tasks With
+                    <span
+                        class="bg-clip-text animate-pulse italic text-transparent bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500">
+                        Intuitive
+                    </span>
+                    To-Do List App!
+                </h1>
+
+                <form class="bg-gray-900 opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
+                    <div class="mb-4">
+                        <p class="block text-blue-300 py-2 font-bold mb-2" for="emailaddress">
+                            Streamline Your Productivity and stay on top of your tasks with our simple To-Do app!
+                        </p>
+
+                    </div>
+
+                    <div class="flex items-center justify-center pt-4">
+                        <button
+                            class="bg-gradient-to-r from-cyan-700 via-cyan-500 to-cyan-700 hover:from-cyan-500 hover:via-cyan-600 hover:to-cyan-500 text-gray-100 font-bold text-lg py-3 px-6 rounded-lg focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                            type="button">
+                            Get Started
+                        </button>
+                    </div>
+                </form>
             </div>
+            <div class="w-6/12">Usama</div>
 
-            <form @submit.prevent="addTask(colIndex)">
-                <input v-model="newTask.name" placeholder="Name" required>
-                <input v-model="newTask.lastName" placeholder="Last Name" required>
-                <input v-model="newTask.description" placeholder="Description" required>
-                <button type="submit">Add Task</button>
-            </form>
         </div>
-
-        <div>
-            <h2>Add Column</h2>
-            <form @submit.prevent="addColumn">
-                <input v-model="newColumnTitle" placeholder="Column Title" required>
-                <button type="submit">Add Column</button>
-            </form>
-        </div>
-
-        <form v-if="showEditForm" @submit.prevent="updateTask">
-            <input v-model="editedTask.name" placeholder="Name" required>
-            <input v-model="editedTask.lastName" placeholder="Last Name" required>
-            <input v-model="editedTask.description" placeholder="Description" required>
-            <button type="submit">Update Task</button>
-            <button @click="cancelEdit">Cancel</button>
-        </form>
-    </div>
+    </Body>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-import { useTasksStore } from '/store/crud'
-
-const store = useTasksStore()
-
-let editColumnIndex = null
-let editTaskIndex = null
-const columns = store.columns
-
-const editedTask = ref(null)
-const showEditForm = ref(false)
-
-const newTask = {
-    name: '',
-    lastName: '',
-    description: ''
-}
-
-const newColumnTitle = ref('')
-
-function addTask(columnIndex) {
-    store.addTask(columnIndex, { ...newTask })
-    newTask.name = ''
-    newTask.lastName = ''
-    newTask.description = ''
-}
-
-function addColumn() {
-    if (newColumnTitle.value.trim() !== '') {
-        store.addColumn(newColumnTitle.value)
-        newColumnTitle.value = ''
-    }
-}
-
-function openEditForm(columnIndex, taskIndex) {
-    if (columns[columnIndex] && columns[columnIndex].tasks && columns[columnIndex].tasks[taskIndex]) {
-        editedTask.value = { ...columns[columnIndex].tasks[taskIndex] }
-        editColumnIndex = columnIndex
-        editTaskIndex = taskIndex
-        showEditForm.value = true
-    }
-}
-
-function updateTask() {
-    if (editedTask.value !== null && editColumnIndex !== null && editTaskIndex !== null) {
-        store.updateTask(editColumnIndex, editTaskIndex, editedTask.value)
-        editedTask.value = null
-        editColumnIndex = null
-        editTaskIndex = null
-        showEditForm.value = false
-    }
-}
-function cancelEdit() {
-    editedTask.value = null
-    showEditForm.value = false
-}
-
-function deleteTask(columnIndex, taskIndex) {
-    store.deleteTask(columnIndex, taskIndex)
-}
-</script>

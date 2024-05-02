@@ -1,8 +1,9 @@
 <template>
-    <div class="w-full p-4 shadow-lg sticky bg-secondary top-[-0.2rem] ">
+    <div class="w-full py-6 shadow-lg sticky bg-secondary top-[-0.2rem] px-4">
         <div class=" w-full mx-auto max-w-custom z-50 flex items-center justify-between">
-            <NuxtLink to="/" class="text-2xl text-gray-300 font-bold">
-                Todo App
+            <NuxtLink to="/"
+                class="text-xl relative animate-pulse font-bold italic drop-shadow-xl text-cyan-500 flex  flex-col text-center">
+                <span>TaskMaster</span>
             </NuxtLink>
             <div>
                 <NuxtLink v-for="(tab, index) in tabs" :key="index" :class="{
@@ -26,6 +27,10 @@ const tabs = ref([
     {
         tabName: 'About',
         tabLink: '/About'
+    },
+    {
+        tabName: 'Manage Tasks',
+        tabLink: '/Task-board'
     }
 ])
 const route = useRoute()

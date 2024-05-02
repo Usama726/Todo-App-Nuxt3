@@ -10,7 +10,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-base font-medium"> Write a precise title for a column</p>
-                                <p class="text-base font-medium">i.e ( In progress, To do )</p>
+                                <p class="text-base font-medium">i.e ( In progress, To do etc)</p>
                             </div>
                             <div class=" flex justify-end  hover:bg-gray-200 rounded-lg p-2 cursor-pointer">
                                 <TheCrossIcon @click="$emit('close')" />
