@@ -4,7 +4,7 @@
         <Navbar />
         <div class=" px-4 xl:px-0 w-full max-w-custom mx-auto flex justify-between mt-4 ">
             <TheButton buttonText="Add Column" @click="openAddColumnModel = true" />
-            <TheButton v-if="columns?.length > 0" buttonText="Clear Task Board"
+            <TheButton v-if="getColumns?.length > 0" buttonText="Clear Task Board"
                 @click="openDeleteConfirmation(null, null, 'all')" />
         </div>
         <AddColumnPopup v-if="openAddColumnModel" @addColumn="addColumn" show-add-column-model="openAddColumnModel"
@@ -177,7 +177,7 @@
                     </div>
                 </form>
 
-                <TheButton v-if="!showForm && columns?.length > 0" buttonText="Add Column" @click="showForm = true"
+                <TheButton v-if="!showForm && getColumns?.length > 0" buttonText="Add Column" @click="showForm = true"
                     class="w-[325px] " />
             </div>
         </div>
