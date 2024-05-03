@@ -349,7 +349,7 @@ const moveColumn = (toIndex) => {
     if (dragColumnIndex !== null && dragColumnIndex !== toIndex) {
         store.moveColumn(dragColumnIndex.value, toIndex)
         dragColumnIndex.value = toIndex
-        columns.value = store.columns
+        columns.value = getColumns.value
     }
 }
 const updateColumnOrder = () => {
@@ -368,7 +368,7 @@ const addTask = (columnIndex) => {
     triggerSuccessMessage('Task Added successfully')
 }
 const openEditForm = (columnIndex, taskIndex) => {
-    editedTask.value = { ...columns.value[columnIndex].tasks[taskIndex] }
+    editedTask.value = { ...getColumns.value[columnIndex].tasks[taskIndex] }
     editColumnIndex.value = columnIndex
     editTaskIndex.value = taskIndex
     editTaskModel.value = true
