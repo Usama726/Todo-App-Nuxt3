@@ -12,7 +12,7 @@
         <div>
             <div
                 class="px-4 xl:px-0  flex overflow-x-scroll scroll-smooth gap-4 overflow-y-hidden no-scrollbar  h-auto max-h-[75vh] w-full max-w-custom mx-auto  mt-6 z-50 rounded-lg">
-                <div v-for="(column, columnIndex) in   columns  " :key="columnIndex"
+                <div v-for="(column, columnIndex) in   getColumns" :key="columnIndex"
                     class="w-[320px] max-h-[75vh]  bg-black rounded-xl" @dragover.prevent
                     @drop="moveColumn(columnIndex)" draggable="true" @dragstart="dragColumnIndex = columnIndex"
                     @dragend="updateColumnOrder">
@@ -194,7 +194,7 @@
 import { ref } from 'vue';
 import { useTodoAppStore } from '~/store/todoStore';
 const store = useTodoAppStore();
-
+const { getColumns } = storeToRefs(store)
 //  Variables
 
 const showForm = ref(false)
